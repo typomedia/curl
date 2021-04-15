@@ -158,7 +158,7 @@ class MultiCurl
      *
      * @return object
      */
-    public function addGet($url, $data = [])
+    public function addGet($url, $data = [], $headers = [])
     {
         if (is_array($url)) {
             $data = $url;
@@ -169,6 +169,7 @@ class MultiCurl
         $this->queueHandle($curl);
         $this->setUrl($url, $data);
         $curl->setUrl($url, $data);
+        $curl->setHeaders($headers);
         $curl->setOpt(CURLOPT_CUSTOMREQUEST, 'GET');
         $curl->setOpt(CURLOPT_HTTPGET, true);
         return $curl;
@@ -266,7 +267,7 @@ class MultiCurl
      *
      * @return object
      */
-    public function addPost($url, $data = '', $follow_303_with_post = false)
+    public function addPost($url, $data = '', $headers = [], $follow_303_with_post = false)
     {
         if (is_array($url)) {
             $follow_303_with_post = (bool)$data;
@@ -277,6 +278,7 @@ class MultiCurl
         $curl = new Curl($this->baseUrl);
         $this->queueHandle($curl);
         $this->setUrl($url);
+        $curl->setHeaders($headers);
 
         if (is_array($data) && empty($data)) {
             $curl->removeHeader('Content-Length');
