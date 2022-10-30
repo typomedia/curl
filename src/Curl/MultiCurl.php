@@ -158,17 +158,15 @@ class MultiCurl
      *
      * @return object
      */
-    public function addGet($url, $data = [], $headers = [])
+    public function addGet($url, $headers = [], $info ='')
     {
-        if (is_array($url)) {
-            $data = $url;
-            $url = $this->baseUrl;
-        }
-
         $curl = new Curl($this->baseUrl);
         $this->queueHandle($curl);
-        $this->setUrl($url, $data);
-        $curl->setUrl($url, $data);
+        $this->setUrl($url);
+        
+        $curl->setUrl($url);
+        $curl->setInfo($info);
+
         $curl->setHeaders($headers);
         $curl->setOpt(CURLOPT_CUSTOMREQUEST, 'GET');
         $curl->setOpt(CURLOPT_HTTPGET, true);
