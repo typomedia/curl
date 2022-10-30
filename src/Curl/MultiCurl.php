@@ -267,7 +267,7 @@ class MultiCurl
      *
      * @return object
      */
-    public function addPost($url, $data = '', $headers = [], $follow_303_with_post = false)
+    public function addPost($url, $data = '', $headers = [], $info = '', $follow_303_with_post = false)
     {
         if (is_array($url)) {
             $follow_303_with_post = (bool)$data;
@@ -285,6 +285,7 @@ class MultiCurl
         }
 
         $curl->setUrl($url);
+        $curl->setInfo($info);
 
         /*
          * For post-redirect-get requests, the CURLOPT_CUSTOMREQUEST option must not
