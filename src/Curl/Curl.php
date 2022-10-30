@@ -13,6 +13,7 @@ class Curl
 
     public $curl = null;
     public $id = null;
+    public $info = null;
 
     public $error = false;
     public $errorCode = 0;
@@ -1016,6 +1017,11 @@ class Curl
     public function setFile($file)
     {
         $this->setOpt(CURLOPT_FILE, $file);
+    }
+
+    public function setInfo($file)
+    {
+        $this->info = $file;
     }
 
     /**
