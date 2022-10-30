@@ -1,7 +1,7 @@
 {
-    "name": "php-curl-class/php-curl-class",
+    "name": "typomedia/curl",
     "description": "PHP Curl Class makes it easy to send HTTP requests and integrate with web APIs.",
-    "homepage": "https://github.com/php-curl-class/php-curl-class",
+    "homepage": "https://github.com/typomedia/curl",
     "license": "Unlicense",
     "keywords": [
         "php", "curl", "class", "api", "api-client", "client", "framework", "http", "http-client", "http-proxy", "json",
@@ -11,6 +11,9 @@
     "authors": [
         {
             "name": "Zach Borboa"
+        },
+        {
+            "name": "Philipp Speck"
         }
     ],
     "require": {
